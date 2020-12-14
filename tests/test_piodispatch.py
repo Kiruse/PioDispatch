@@ -1,7 +1,7 @@
 """PioDispatch microlibrary unit test.
 Copyright (c) Kiruse 2020. See license in LICENSE."""
 from time import sleep, time
-from .piodispatch import ascoroutine, dispatch
+from piodispatch import ascoroutine, dispatch
 import requests
 import pytest
 
