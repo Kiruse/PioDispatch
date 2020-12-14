@@ -12,8 +12,8 @@ def ascoroutine(fn: Callable):
         return await dispatch(fn, *args, **kwargs)
     return inner
 
-async def dispatch(callback: Callable, *args, **kwargs):
-    return await wrap_future(pool.submit(callback, *args, **kwargs))
+def dispatch(callback: Callable, *args, **kwargs):
+    return wrap_future(pool.submit(callback, *args, **kwargs))
 
 def shutdown():
     pool.shutdown()
