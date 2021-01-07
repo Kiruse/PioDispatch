@@ -8,7 +8,7 @@ import functools
 pool = ThreadPoolExecutor(100, 'io-runner-')
 T = TypeVar('T')
 
-def ascoroutine(fn: Callable[..., T]) -> Callable[..., T]:
+def ascoroutine(fn: Callable[..., T]) -> Callable[..., Awaitable[T]]:
     @functools.wraps(fn)
     async def inner(*args, **kwargs):
         return await dispatch(fn, *args, **kwargs)
